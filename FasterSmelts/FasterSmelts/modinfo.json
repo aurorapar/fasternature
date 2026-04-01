@@ -1,0 +1,14 @@
+{
+    "$schema": "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json",
+    "type": "Code",
+    "modid": "fastersmelts",
+    "name": "FasterSmelts",
+    "authors": [
+        "Aurorlock"
+    ],
+    "description": "Adds configurations to change the smelting time of Bloomeries, Kilns, and Cementation Furnaces",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": "1.21.6"
+    }
+}
