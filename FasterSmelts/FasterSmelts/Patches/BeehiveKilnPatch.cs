@@ -4,7 +4,6 @@ using HarmonyLib;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
-using static FasterSmelts.Messenger.Messenger;
 
 namespace FasterSmelts.Patches;
 

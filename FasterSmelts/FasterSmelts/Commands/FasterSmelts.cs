@@ -42,7 +42,7 @@ public class FasterSmelts : CustomCommand
         if (args.ArgCount == 1 || (double) args[1] == 0)
             return TextCommandResult.Success($"Current {setting} value: {CustomConfig.GetConfigSetting((CustomConfig.CustomConfigSetting) customSetting)}");
         
-        double value = Math.Min(Math.Max(0.1, (double) args[1]), 100);
+        double value = Math.Min(Math.Max(0.01, (double) args[1]), 100);
         
         CustomConfig.UpdateConfigSetting(Api, (CustomConfig.CustomConfigSetting) customSetting, value);
         return TextCommandResult.Success($"{setting} is now {value}");
