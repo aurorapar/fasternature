@@ -22,7 +22,7 @@ public class FasterSmelts : CustomCommand
                 .Select(x => x.ToString())
                 .ToArray()
         );
-        var valueParser = api.ChatCommands.Parsers.OptionalDouble("rate value (Default: 1)");
+        var valueParser = api.ChatCommands.Parsers.OptionalDouble("rate value");
         
         Command.WithArgs(settingParser, valueParser);
     }
@@ -36,13 +36,15 @@ public class FasterSmelts : CustomCommand
 
         string setting = (string) args.Parsers[0].GetValue();
         var customSetting = CustomConfig.GetCustomConfigSetting(setting);
+        if(customSetting is null)
+            return TextCommandResult.Error($"Invalid config setting '{setting}'. Valid options:" + String.Join(", ", configSettings));
         
         if (args.ArgCount == 1 || (double) args[1] == 0)
             return TextCommandResult.Success($"Current {setting} value: {CustomConfig.GetConfigSetting((CustomConfig.CustomConfigSetting) customSetting)}");
         
         double value = Math.Min(Math.Max(0.1, (double) args[1]), 100);
         
-        CustomConfig.UpdateConfigSetting(FasterSmelts.Api, (CustomConfig.CustomConfigSetting) customSetting, value);
-        return TextCommandResult.Success();
+        CustomConfig.UpdateConfigSetting(Api, (CustomConfig.CustomConfigSetting) customSetting, value);
+        return TextCommandResult.Success($"{setting} is now {value}");
     }
 }

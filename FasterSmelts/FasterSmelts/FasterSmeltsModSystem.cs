@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using FasterSmelts.Config;
+using HarmonyLib;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
 using static FasterSmelts.Helpers.Helpers;
@@ -12,10 +13,21 @@ public class FasterSmeltsModSystem : ModSystem
 {
     public static CustomConfig.CustomConfigSettings config;
     public static string ModName = "FasterSmelts";
+    private Harmony harmony;
     
     public override void Start(ICoreAPI api)
     {
+        
         LoadConfig(api);
+        // Really only used for debugging, but including it for reference
+        Messenger.Messenger.Api = (ICoreServerAPI) api;
+            
+        harmony = new Harmony(Mod.Info.ModID);
+        harmony.PatchAll();
+    }
+    
+    public override void Dispose() {
+        harmony?.UnpatchAll(Mod.Info.ModID);
     }
     
     public override bool ShouldLoad(EnumAppSide side)

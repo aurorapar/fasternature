@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+using System;
 using HarmonyLib;
 using Vintagestory.GameContent;
 
@@ -7,20 +7,13 @@ namespace FasterSmelts.Patches;
 [HarmonyPatch(typeof(BlockEntityBloomery), "TryIgnite")]
 static class BloomeryPatch
 {
-    [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "TryIgnite")]
-    static extern string GetUnsafeMethod(BlockEntityBloomery accessor);
-    
-    [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "get_burningUntilTotalDays")]
-    static extern ref double GetBurningUntilTotalDays(BlockEntityBloomery accessor);
-    
-    [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "set_burningUntilTotalDays")]
-    static extern ref double SetBurningUntilTotalDays(BlockEntityBloomery accessor, double value);
-    
     [HarmonyPostfix]
-    static void TryIgnite_Postfix(BlockEntityBloomery __instance)
+    static void TryIgnite_Postfix(BlockEntityBloomery __instance, ref double ___burningUntilTotalDays)
     {
-        var accessor = __instance;
-        var current = GetBurningUntilTotalDays(accessor);
-        SetBurningUntilTotalDays(accessor, current * FasterSmeltsModSystem.config.BloomerySpeedRate);
+        // this.burningUntilTotalDays = this.Api.World.Calendar.TotalDays + 5.0 / 12.0;
+        // this was changed to 10.0 / 24.0 in 1.22
+        ___burningUntilTotalDays = __instance.Api.World.Calendar.TotalDays - 10 / 24.0;
+        double newTime = 10 / 24.0 * FasterSmeltsModSystem.config.BloomerySpeedRate;
+        ___burningUntilTotalDays = __instance.Api.World.Calendar.TotalDays + newTime;
     }
 }
