@@ -10,6 +10,7 @@ public class CustomConfig
 {
     public class CustomConfigSettings
     {
+        public double CharcoalPitSpeedRate = 1.0;
         public double PitKilnSpeedRate = 1.0;
         public double BloomerySpeedRate = 1.0;
         public double BeehiveKilnSpeedRate = 1.0;
@@ -18,6 +19,7 @@ public class CustomConfig
     
     public enum CustomConfigSetting
     {
+        CharcoalPitSpeedRate,
         PitKilnSpeedRate,
         BloomerySpeedRate,
         BeehiveKilnSpeedRate,
@@ -28,6 +30,10 @@ public class CustomConfig
     {
         switch (setting)
         {
+            case CustomConfigSetting.CharcoalPitSpeedRate:
+                FasterSmeltsModSystem.config.CharcoalPitSpeedRate = value;
+                break;
+            
             case CustomConfigSetting.PitKilnSpeedRate:
                 FasterSmeltsModSystem.config.PitKilnSpeedRate = value;
                 break;
@@ -55,6 +61,9 @@ public class CustomConfig
     {
         switch (setting)
         {
+            case CustomConfigSetting.CharcoalPitSpeedRate:
+                return FasterSmeltsModSystem.config.CharcoalPitSpeedRate;
+            
             case CustomConfigSetting.PitKilnSpeedRate:
                 return FasterSmeltsModSystem.config.PitKilnSpeedRate;
             

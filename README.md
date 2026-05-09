@@ -1,5 +1,7 @@
 
-Adds configuration options to adjust the rate of Pit Kilns and the Bloomery, Beehive Kiln, and Cementation Furnace.
+Adds configuration options to adjust the rate of Pit Kilns, Charcoal Pits, and the Bloomery, Beehive Kiln, and Cementation Furnace.
+
+    /fastersmelts charcoalpitspeedrate [rate]
 
     /fastersmelts pitkilnspeedrate [rate]
 
