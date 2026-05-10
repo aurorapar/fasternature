@@ -10,44 +10,20 @@ public class CustomConfig
 {
     public class CustomConfigSettings
     {
-        public double CharcoalPitSpeedRate = 1.0;
-        public double PitKilnSpeedRate = 1.0;
-        public double BloomerySpeedRate = 1.0;
-        public double BeehiveKilnSpeedRate = 1.0;
-        public double CementationFurnaceSpeedRate = 1.0;    
+        public double BeehiveSpeedRate = 1.0;
     }
     
     public enum CustomConfigSetting
     {
-        CharcoalPitSpeedRate,
-        PitKilnSpeedRate,
-        BloomerySpeedRate,
-        BeehiveKilnSpeedRate,
-        CementationFurnaceSpeedRate
+        BeehiveSpeedRate
     }
 
     public static void UpdateConfigSetting(ICoreServerAPI api, CustomConfigSetting setting, double value)
     {
         switch (setting)
         {
-            case CustomConfigSetting.CharcoalPitSpeedRate:
-                FasterNatureModSystem.config.CharcoalPitSpeedRate = value;
-                break;
-            
-            case CustomConfigSetting.PitKilnSpeedRate:
-                FasterNatureModSystem.config.PitKilnSpeedRate = value;
-                break;
-            
-            case CustomConfigSetting.BloomerySpeedRate:
-                FasterNatureModSystem.config.BloomerySpeedRate = value;
-                break;
-                
-            case CustomConfigSetting.BeehiveKilnSpeedRate:
-                FasterNatureModSystem.config.BeehiveKilnSpeedRate = value;
-                break;
-                
-            case CustomConfigSetting.CementationFurnaceSpeedRate:
-                FasterNatureModSystem.config.CementationFurnaceSpeedRate = value;
+            case CustomConfigSetting.BeehiveSpeedRate:
+                FasterNatureModSystem.config.BeehiveSpeedRate = value;
                 break;
                 
             _default:
@@ -61,20 +37,8 @@ public class CustomConfig
     {
         switch (setting)
         {
-            case CustomConfigSetting.CharcoalPitSpeedRate:
-                return FasterNatureModSystem.config.CharcoalPitSpeedRate;
-            
-            case CustomConfigSetting.PitKilnSpeedRate:
-                return FasterNatureModSystem.config.PitKilnSpeedRate;
-            
-            case CustomConfigSetting.BloomerySpeedRate:
-                return FasterNatureModSystem.config.BloomerySpeedRate;
-                
-            case CustomConfigSetting.BeehiveKilnSpeedRate:
-                return FasterNatureModSystem.config.BeehiveKilnSpeedRate;
-                
-            case CustomConfigSetting.CementationFurnaceSpeedRate:
-                return FasterNatureModSystem.config.CementationFurnaceSpeedRate;
+            case CustomConfigSetting.BeehiveSpeedRate:
+                return FasterNatureModSystem.config.BeehiveSpeedRate;
                 
             _default:
                 throw new ArgumentException($"Unknown config setting {setting}");
