@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FasterSmelts", "FasterSmelts\FasterSmelts\FasterSmelts.csproj", "{DB1BB59E-0C79-4ECB-8707-032C5CD73800}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FasterNature", "FasterNature\FasterNature\FasterNature.csproj", "{DB1BB59E-0C79-4ECB-8707-032C5CD73800}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeBuild", "FasterSmelts\CakeBuild\CakeBuild.csproj", "{A7371E02-C2D9-421E-B438-15602C6DD02A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeBuild", "FasterNature\CakeBuild\CakeBuild.csproj", "{A7371E02-C2D9-421E-B438-15602C6DD02A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

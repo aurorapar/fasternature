@@ -12,7 +12,7 @@ namespace FasterSmelts;
 public class FasterSmeltsModSystem : ModSystem
 {
     public static CustomConfig.CustomConfigSettings config;
-    public static string ModName = "FasterSmelts";
+    public static string ModName = "FasterNature";
     private Harmony harmony;
     
     public override void Start(ICoreAPI api)
