@@ -7,7 +7,7 @@
     "Aurorlock"
   ],
   "description": "Adds configuration options to adjust the rate of natural phenomenon like Beehives and Fruit Tree vernalization.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dependencies": {
     "game": "1.22.2"
   },
