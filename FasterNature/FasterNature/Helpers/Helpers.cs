@@ -13,7 +13,7 @@ public class Helpers
 
     public static void SaveConfig(ICoreServerAPI api)
     {
-        string configPath = Path.Join(FasterNatureModSystem.ModName, FasterNatureModSystem.ModName + ".json");
+        var configPath = Path.Join(FasterNatureModSystem.ModName, FasterNatureModSystem.ModName + ".json");
         api.StoreModConfig(FasterNatureModSystem.config, configPath);
     }
 }

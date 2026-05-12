@@ -1,17 +1,17 @@
 {
-    "$schema": "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json",
-    "type": "Code",
-    "modid": "fasternature",
-    "name": "FasterNature",
-    "authors": [
-        "Aurorlock"
-    ],
-    "description": "Adds configuration options to adjust the rate of natural phenomenon like Beehives and Fruit Tree vernalization.",
-    "version": "1.0.0",
-    "dependencies": {
-        "game": "1.22.2"
-    },
-    "requiredOnClient": true,
-    "requiredOnServer": true,
-    "website": "https://github.com/aurorapar/fasternature"
+  "$schema": "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json",
+  "type": "Code",
+  "modid": "fasternature",
+  "name": "FasterNature",
+  "authors": [
+    "Aurorlock"
+  ],
+  "description": "Adds configuration options to adjust the rate of natural phenomenon like Beehives and Fruit Tree vernalization.",
+  "version": "1.0.0",
+  "dependencies": {
+    "game": "1.22.2"
+  },
+  "requiredOnClient": true,
+  "requiredOnServer": true,
+  "website": "https://github.com/aurorapar/fasternature"
 }

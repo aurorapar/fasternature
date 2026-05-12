@@ -11,13 +11,9 @@ public static class Messenger
     {
         if (Api is null)
             return;
-        
+
         foreach (var player in Api.World.AllOnlinePlayers)
-        {
             if (player is IServerPlayer serverPlayer)
-            {
                 serverPlayer.SendMessage(0, message, EnumChatType.Notification);
-            }
-        }
     }
 }

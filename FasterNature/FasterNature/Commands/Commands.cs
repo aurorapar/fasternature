@@ -5,7 +5,7 @@ namespace FasterNature.Commands;
 
 public static class Commands
 {
-    public static List<CustomCommand> ModCommands { get; } = new List<CustomCommand>();
+    public static List<CustomCommand> ModCommands { get; } = new();
 
     public static void RegisterCommands(ICoreServerAPI api)
     {

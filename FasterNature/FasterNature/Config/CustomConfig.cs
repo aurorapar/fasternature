@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Vintagestory.API.Server;
 using static FasterNature.Helpers.Helpers;
@@ -8,14 +7,16 @@ namespace FasterNature.Config;
 
 public class CustomConfig
 {
+    public enum CustomConfigSetting
+    {
+        BeehiveSpeedRate,
+        FruitTreeSpeedRate
+    }
+    
     public class CustomConfigSettings
     {
         public double BeehiveSpeedRate = 1.0;
-    }
-    
-    public enum CustomConfigSetting
-    {
-        BeehiveSpeedRate
+        public double FruitTreeSpeedRate = 1.0;
     }
 
     public static void UpdateConfigSetting(ICoreServerAPI api, CustomConfigSetting setting, double value)
@@ -26,13 +27,16 @@ public class CustomConfig
                 FasterNatureModSystem.config.BeehiveSpeedRate = value;
                 break;
                 
-            _default:
-                throw new ArgumentException($"Unknown config setting {setting}");
+            case CustomConfigSetting.FruitTreeSpeedRate:
+                FasterNatureModSystem.config.FruitTreeSpeedRate = value;
+                break;
+
+            throw new ArgumentException($"Unknown config setting {setting}");
         }
-        
+
         SaveConfig(api);
     }
-    
+
     public static double GetConfigSetting(CustomConfigSetting setting)
     {
         switch (setting)
@@ -40,10 +44,12 @@ public class CustomConfig
             case CustomConfigSetting.BeehiveSpeedRate:
                 return FasterNatureModSystem.config.BeehiveSpeedRate;
                 
-            _default:
-                throw new ArgumentException($"Unknown config setting {setting}");
+            case CustomConfigSetting.FruitTreeSpeedRate:
+                return FasterNatureModSystem.config.FruitTreeSpeedRate;
+
+            throw new ArgumentException($"Unknown config setting {setting}");
         }
-        
+
         throw new ArgumentException($"Unknown config setting {setting}");
     }
 
@@ -52,12 +58,13 @@ public class CustomConfig
         CustomConfigSetting? match = null;
         var candidates = Enum.GetValues(typeof(CustomConfigSetting))
             .Cast<CustomConfigSetting>();
-        foreach(var candidate in candidates)
+        foreach (var candidate in candidates)
             if (candidate.ToString().ToLower().Equals(setting.ToLower()))
             {
                 match = candidate;
                 break;
             }
+
         return match;
     }
 }

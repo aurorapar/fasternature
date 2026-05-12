@@ -14,22 +14,22 @@ public class FasterNatureModSystem : ModSystem
     public static CustomConfig.CustomConfigSettings config;
     public static string ModName = "FasterNature";
     private Harmony harmony;
-    
+
     public override void Start(ICoreAPI api)
     {
-        
         LoadConfig(api);
         // Really only used for debugging, but including it for reference
-        Messenger.Messenger.Api = (ICoreServerAPI) api;
-            
+        Messenger.Messenger.Api = (ICoreServerAPI)api;
+
         harmony = new Harmony(Mod.Info.ModID);
         harmony.PatchAll();
     }
-    
-    public override void Dispose() {
+
+    public override void Dispose()
+    {
         harmony?.UnpatchAll(Mod.Info.ModID);
     }
-    
+
     public override bool ShouldLoad(EnumAppSide side)
     {
         return IsServerSide(side);
@@ -43,14 +43,14 @@ public class FasterNatureModSystem : ModSystem
 
     public void LoadConfig(ICoreAPI api)
     {
-        string configPath = Path.Join(ModName, ModName + ".json");
+        var configPath = Path.Join(ModName, ModName + ".json");
         try
         {
             config = api.LoadModConfig<CustomConfig.CustomConfigSettings>(configPath);
-            if (config == null) 
+            if (config == null)
                 config = new CustomConfig.CustomConfigSettings();
 
-            SaveConfig((ICoreServerAPI) api);
+            SaveConfig((ICoreServerAPI)api);
         }
         catch (Exception e)
         {
